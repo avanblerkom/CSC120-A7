@@ -68,7 +68,10 @@ public int nResidents();
 ```
 
 ---
-3. Write methods to update the `ArrayList` of `residents` every time someone moves in or out:
+3. Write methods to update the `ArrayList` of `residents` every time someone moves in or out: 
+
+!!ALMOST THE SAME AS THE PASSENGER METHOD!!
+
 ```
 public void moveIn(Student s);
 public Student moveOut(Student s); // return the Student who moved out

@@ -13,6 +13,15 @@ public class Building {
         this.nFloors = nFloors;
     }
 
+    
+    
+    public Building(House h) {
+        //TODO Auto-generated constructor stub
+        this.name = h.getName();
+        this.address = h.getAddress();
+        this.nFloors = h.getFloors();
+    }
+
     public String getName() {
         return this.name;
     }
