@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class House extends Building implements HouseRequirements {
+public class House extends Building {
 
   private ArrayList<Student> residents; // List of residents
   private boolean hasDiningRoom; // Indicates if the house has a dining room

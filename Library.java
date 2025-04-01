@@ -1,19 +1,29 @@
-/* This is a stub for the Library class */
-
+/**
+ * This class represents a Library, which extends the Building class and implements LibraryRequirements.
+ * It manages a collection of books and provides methods to add, remove, check out, and return books.
+ */
 import java.util.Hashtable;
 
 public class Library extends Building implements LibraryRequirements {
 
     private Hashtable<String, Boolean> collection; // Collection of books with availability status
 
-    // Constructor to initialize the Library
+    /**
+     * Constructor to initialize the Library.
+     * @param name The name of the library.
+     * @param address The address of the library.
+     * @param nFloors The number of floors in the library.
+     */
     public Library(String name, String address, int nFloors) {
         super(name, address, nFloors); // Call the Building constructor
         this.collection = new Hashtable<String, Boolean>(); // Initialize the collection as an empty Hashtable
         System.out.println("You have built a library: 📖");
     }
 
-    // Add a book title to the collection
+    /**
+     * Add a book title to the collection.
+     * @param title The title of the book to add.
+     */
     public void addTitle(String title) {
         if (!collection.containsKey(title)) {
             collection.put(title, true); // Add the book as available
@@ -23,7 +33,11 @@ public class Library extends Building implements LibraryRequirements {
         }
     }
 
-    // Remove a book title from the collection
+    /**
+     * Remove a book title from the collection.
+     * @param title The title of the book to remove.
+     * @return The title of the removed book, or null if the book was not found.
+     */
     public String removeTitle(String title) {
         if (collection.containsKey(title)) {
             collection.remove(title); // Remove the book
@@ -35,7 +49,10 @@ public class Library extends Building implements LibraryRequirements {
         }
     }
 
-    // Check out a book (mark it as unavailable)
+    /**
+     * Check out a book (mark it as unavailable).
+     * @param title The title of the book to check out.
+     */
     public void checkOut(String title) {
         if (collection.containsKey(title) && collection.get(title)) {
             collection.replace(title, false); // Mark the book as unavailable
@@ -47,7 +64,10 @@ public class Library extends Building implements LibraryRequirements {
         }
     }
 
-    // Return a book (mark it as available)
+    /**
+     * Return a book (mark it as available).
+     * @param title The title of the book to return.
+     */
     public void returnBook(String title) {
         if (collection.containsKey(title) && !collection.get(title)) {
             collection.replace(title, true); // Mark the book as available
@@ -59,17 +79,27 @@ public class Library extends Building implements LibraryRequirements {
         }
     }
 
-    // Check if the collection contains a specific title
+    /**
+     * Check if the collection contains a specific title.
+     * @param title The title to check for.
+     * @return True if the collection contains the title, false otherwise.
+     */
     public boolean containsTitle(String title) {
         return collection.containsKey(title); // Check if the title exists in the collection
     }
 
-    // Check if a specific title is available
+    /**
+     * Check if a specific title is available.
+     * @param title The title to check for availability.
+     * @return True if the title is available, false otherwise.
+     */
     public boolean isAvailable(String title) {
         return collection.containsKey(title) && collection.get(title); // Check if the title exists and is available
     }
 
-    // Print the entire collection
+    /**
+     * Print the entire collection.
+     */
     public void printCollection() {
         if (collection.isEmpty()) {
             System.out.println("The collection is empty.");
